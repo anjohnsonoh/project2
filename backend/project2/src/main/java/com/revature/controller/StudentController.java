@@ -23,7 +23,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.revature.entities.Student;
 import com.revature.service.StudentService;
 
-@Controller
+@RestController
 @RequestMapping(path = "student")
 public class StudentController {
 
@@ -61,7 +61,7 @@ public class StudentController {
 	public void addUser(@RequestBody Student student) {
 		studentService.add(student);
 	}
-    @PostMapping(path = "/{id}")
+    @PostMapping(path = "{id}")
     public Student updateStudent(@PathVariable("id") Integer id, @RequestBody Student student)
     {
     	return studentService.update(student, id);

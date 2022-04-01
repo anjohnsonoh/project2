@@ -9,6 +9,7 @@ import { RegisterTeacherComponent } from './register-teacher/register-teacher.co
 import { StudentHomeComponent } from './student-home/student-home.component';
 import { TeacherHomeComponent } from './teacher-home/teacher-home.component';
 import { AllStudentsComponent } from './all-students/all-students.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,12 @@ import { AllStudentsComponent } from './all-students/all-students.component';
     RegisterTeacherComponent,
     StudentHomeComponent,
     TeacherHomeComponent,
-    AllStudentsComponent
+    AllStudentsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
