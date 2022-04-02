@@ -74,4 +74,9 @@ public class StudentController {
     	student.setAttendance(student.getAttendance()+1);
     	return updateStudent(id, student);
     }
+    
+    @GetMapping
+    public Student findTeacher(String teacher) {
+    	return studentService.findTeacher(teacher);
+    }
 }

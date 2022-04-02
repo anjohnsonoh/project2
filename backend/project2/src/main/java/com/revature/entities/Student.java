@@ -30,6 +30,17 @@ public class Student {
 	//To grab student attendance we'll keep a receipt on the Attendance Class
 	@Column(name = "Attendance")
 	private Integer attendance;
+	
+	@Column(name = "teacher")
+	private String teacher;
+
+	public String getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(String teacher) {
+		this.teacher = teacher;
+	}
 
 	public Integer getId() {
 		return id;
@@ -82,11 +93,11 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", username=" + username + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", attendance=" + attendance + "]";
+				+ ", lastName=" + lastName + ", attendance=" + attendance + ", teacher=" + teacher + "]";
 	}
 
-	public Student(Integer id, String username, String password, String firstName, String lastName,
-			Integer attendance) {
+	public Student(Integer id, String username, String password, String firstName, String lastName, Integer attendance,
+			String teacher) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -94,6 +105,7 @@ public class Student {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.attendance = attendance;
+		this.teacher = teacher;
 	}
 
 	public Student() {

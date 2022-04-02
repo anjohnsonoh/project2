@@ -21,4 +21,6 @@ public interface StudentService {
 	public Student update(Student student, Integer id);
 	
 	public void delete(Integer id);
+	
+	public Student findTeacher(String teacher);
 }
