@@ -11,6 +11,6 @@ import com.revature.entities.Attendance;
 @Repository
 public interface AttendanceRepository extends JpaRepository<Attendance, Integer> {
 	
-//	@Query("select a from Attendance a where a.name = :name")
-//	Attendance findByStudent(@Param("name") String student);
+	@Query("select a from Attendance a where a.studentName = :student")
+	Attendance findByStudent(@Param("student") String student);
 }
