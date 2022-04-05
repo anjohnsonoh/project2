@@ -1,4 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Student } from '../student';
+import { StudentService } from '../student.service';
 
 @Component({
   selector: 'app-student-home',
@@ -7,9 +11,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentHomeComponent implements OnInit {
 
-  constructor() { }
+
+  public student: Student;
+  constructor(private studentService: StudentService,
+    private route: ActivatedRoute,
+    private router: Router) {
+      this.student={
+        id:0,
+        username:"",
+        password:"",
+        firstName:"",
+        lastName:"",
+        Attendance:0
+      }
+    }
 
   ngOnInit(): void {
+    this.getStudent();
   }
 
+  getStudent(): void {
+    this.studentService.getStudentByUsername(localStorage.getItem('loggedInStudent') || '').subscribe(
+      (data:Student)=>{
+        this.student = data as Student;
+        console.log(data);
+      }),
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    }
 }

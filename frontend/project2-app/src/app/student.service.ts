@@ -10,6 +10,8 @@ export class StudentService {
 
   private apiServerUrl = environment.apiBaseUrl;
 
+  public loggedInStudent: Student | undefined;
+
   constructor(private http: HttpClient) { }
   public getStudents(): Observable<Student[]>
   {
