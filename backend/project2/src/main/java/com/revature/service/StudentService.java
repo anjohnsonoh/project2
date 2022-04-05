@@ -20,4 +20,6 @@ public interface StudentService {
 	public void delete(Integer id);
 	
 	public Student findTeacher(String teacher);
+
+	public Student getByUsername(String username);
 }

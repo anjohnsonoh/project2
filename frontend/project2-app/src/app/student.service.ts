@@ -15,6 +15,10 @@ export class StudentService {
   {
     return this.http.get<Student[]>(`${this.apiServerUrl}/student`);
   }
+  public getStudentByUsername(username: string)
+  {
+    return this.http.get<Student>(`${this.apiServerUrl}/student/byUsername/${username}`);
+  }
   public getStudent(id: Number): Observable<Student>
   {
     return this.http.get<Student>(`${this.apiServerUrl}/${id}`)

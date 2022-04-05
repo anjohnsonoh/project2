@@ -1,8 +1,8 @@
 export interface Student{
-    id: Number,
-    username: String,
-    password: String,
-    firstname: String,
+    id: number,
+    username: string,
+    password: string,
+    firstname: string,
     lastname: string,
-    attendance: Number
+    attendance: number
 }

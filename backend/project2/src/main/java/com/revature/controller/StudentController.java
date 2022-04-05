@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -40,7 +42,11 @@ public class StudentController {
 	{
 		return studentService.findById(id);
 	}
-	
+	@RequestMapping(path = "/byUsername/{username}",  method = RequestMethod.GET)
+	public Student getStudentByUsername(@PathVariable("username") String username)
+	{
+		return studentService.getByUsername(username);
+	}
 	@PostMapping("/login")
 	public String login(@ModelAttribute("student") Student student) {
 		Student oauthStudent = studentService.studentLogin(student.getUsername(), student.getPassword());
@@ -69,8 +75,8 @@ public class StudentController {
     	return updateStudent(id, student);
     }
     
-    @GetMapping(path="/{teacher}")
+    /*@GetMapping(path="/{teacher}")
     public Student findTeacher(String teacher) {
     	return studentService.findTeacher(teacher);
-    }
+    }*/
 }

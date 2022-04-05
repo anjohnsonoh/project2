@@ -65,7 +65,9 @@ public class StudentServiceImpl implements StudentService {
 	public Student findTeacher(String teacher) {
 		return studentRepository.findTeacher(teacher);
 	}
-	
-	
+	@Override
+	public Student getByUsername(String username) {
+		return studentRepository.findByUsername(username);
+	}
 
 }
