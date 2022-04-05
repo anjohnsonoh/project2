@@ -9,6 +9,10 @@ public interface TeacherService {
 	public List<Teacher> findAll();
 
 	public Teacher findById(int id);
+	
+	public Teacher add(Teacher teacher);
+	
+	public Teacher update(Teacher request, Integer id);
 
 	public Teacher teacherLogin(String username, String password);
 

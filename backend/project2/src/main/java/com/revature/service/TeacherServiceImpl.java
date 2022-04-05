@@ -29,4 +29,21 @@ public class TeacherServiceImpl implements TeacherService {
 	public Teacher teacherLogin(String username, String password) {
 		return teacherRepository.findByUsernameAndPassword(username, password);
 	}
+
+	@Override
+	public Teacher add(Teacher teacher) {
+		return teacherRepository.save(teacher);
+	}
+
+	@Override
+	public Teacher update(Teacher request, Integer id) {
+		Teacher fromDb = new Teacher();
+		fromDb.setId(id);
+		fromDb.setUsername(request.getUsername());
+		fromDb.setPassword(request.getPassword());
+		fromDb.setFirstName(request.getFirstName());
+		fromDb.setLastName(request.getLastName());
+		fromDb.setRole(request.getRole());
+		return teacherRepository.save(fromDb);		
+	}
 }

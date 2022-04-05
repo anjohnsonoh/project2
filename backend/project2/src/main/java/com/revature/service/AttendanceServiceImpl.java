@@ -18,6 +18,11 @@ public class AttendanceServiceImpl implements AttendanceService {
 	public List<Attendance> findAll() {
 		return attendanceRepository.findAll();
 	}
+	
+//	@Override
+//	public Attendance findByStudent(String student) {
+//		return attendanceRepository.findByStudent(student);
+//	}
 
 	@Override
 	public void add(Attendance attendance) {
@@ -25,7 +30,12 @@ public class AttendanceServiceImpl implements AttendanceService {
 	}
 
 	@Override
-	public void update(Attendance attendance, boolean wasAbsent) {
-		attendanceRepository.save(attendance);
+	public Attendance update(Attendance request, boolean wasAbsent) {
+		Attendance fromDb = new Attendance();
+		fromDb.setStudentName(request.getStudentName());
+		fromDb.setWasAbsent(wasAbsent);
+		fromDb.setExcuse(request.getExcuse());
+		fromDb.setReceipt(request.getReceipt());
+		return attendanceRepository.save(fromDb);
 	}
 }
