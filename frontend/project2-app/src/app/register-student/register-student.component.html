@@ -1,1 +1,27 @@
-<p>register-student works!</p>
+<p>Student Registeration</p>
+
+<body>
+  <div class="overall">
+    <h1>Register</h1>
+    <form name="addForm" #addForm="ngForm" (ngSubmit)="onAddEmployee(addForm)">
+      <div>
+        <input id="username" ngModel name="username" type="text" placeholder="Username" required>
+      </div>
+      <div>
+      <input id="password" ngModel name="password" type="password" placeholder="Password" required>
+    </div>
+    <div>
+      <input id="firstname" ngModel name="firstName" type="text"  placeholder="Firstname" required>
+    </div>
+    <div>
+      <input id="lastname" ngModel name= "lastname" type="text"  placeholder="Lastname" required>
+      </div>
+      <div>
+        <input id="email" ngModel name="email" type="text" placeholder="Email" required>
+      </div>
+    <div>
+      <button [disabled]="addForm.invalid" type="submit"> Submit </button>
+    </div>
+    </form>
+  </div>
+</body>

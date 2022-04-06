@@ -9,6 +9,9 @@ import { StudentService } from './student.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  getStudents() {
+    throw new Error('Method not implemented.');
+  }
   title = 'project2-app';
   constructor(private studentService: StudentService){
 
