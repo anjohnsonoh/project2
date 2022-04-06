@@ -23,19 +23,19 @@ export class StudentService {
   }
   public getStudent(id: Number): Observable<Student>
   {
-    return this.http.get<Student>(`${this.apiServerUrl}/${id}`)
+    return this.http.get<Student>(`${this.apiServerUrl}/student/${id}`)
   }
   public addStudent(student: Student): Observable<Student>
   {
-    return this.http.post<Student>(`${this.apiServerUrl}/add`, student)
+    return this.http.post<Student>(`${this.apiServerUrl}/student/add`, student)
   }
   public incrementAttendance(id: Number): Observable<Student>
   {
-    return this.http.put<Student>(`${this.apiServerUrl}/increment/${id}`, 1)
+    return this.http.put<Student>(`${this.apiServerUrl}/student/increment/${id}`, 1)
   }
 
   public updateStudent(student: Student, id: Number)
   {
-    return this.http.post<Student>(`${this.apiServerUrl}/${id}`, student)
+    return this.http.post<Student>(`${this.apiServerUrl}/studnet/${id}`, student)
   }
 }

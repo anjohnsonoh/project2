@@ -8,9 +8,18 @@ import { StudentService } from './student.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent 
+{
+  public students: Student[] | undefined;
   getStudents() {
-    throw new Error('Method not implemented.');
+    this.studentService.getStudents().subscribe(
+      (response: Student[]) => {
+        this.students= response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
   }
   title = 'project2-app';
   constructor(private studentService: StudentService){
