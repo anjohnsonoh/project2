@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import { Attendance } from './attendance';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class AttendanceService {
   constructor(private http: HttpClient) { }
 
   public addAttendance(attendance: Attendance): Observable<Attendance> {
-    return this.http.post<Attendance>(`${this.apiServerUrl}/add`, attendance)
+    return this.http.post<Attendance>(`${this.apiServerUrl}/attendance/add`, attendance)
   }
 
   public getAttendance(): Observable<Attendance[]> {
