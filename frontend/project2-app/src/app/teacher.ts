@@ -1,8 +1,8 @@
 export interface Teacher{
-    id: Number,
-    username: String,
-    password: String,
-    firstName: String,
-    lastName: String,
-    role: String,
+    id: number,
+    username: string,
+    password: string,
+    firstName: string,
+    lastName: string,
+    role: string,
 }

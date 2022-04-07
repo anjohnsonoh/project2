@@ -10,6 +10,9 @@ import { Teacher } from './teacher';
 export class TeacherService {
   private apiServerUrl = environment.apiBaseUrl;
 
+  public loggedInTeacher: Teacher | undefined;
+
+
   constructor(private http: HttpClient) { }
 
   public getTeachers(): Observable<Teacher[]> {
@@ -18,6 +21,11 @@ export class TeacherService {
 
   public getTeacher(id: Number): Observable<Teacher> {
     return this.http.get<Teacher>(`${this.apiServerUrl}/${id}`)
+  }
+
+  public getTeacheByusername(username: string)
+  {
+    return this.http.get<Teacher>(`${this.apiServerUrl}/teacher/byUsername/${username}`);
   }
 
   public addTeacher(teacher: Teacher): Observable<Teacher> {
