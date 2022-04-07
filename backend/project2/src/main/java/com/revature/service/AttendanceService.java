@@ -10,7 +10,7 @@ public interface AttendanceService {
 
 	public void add(Attendance attendance);
 
-	public Attendance update(Attendance attendance, boolean wasAbsent);
+	public Attendance approveAttendance(int id, Attendance attendance);
 	
 	public Attendance findByStudent(String student);
 }

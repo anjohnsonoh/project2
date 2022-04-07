@@ -1,6 +1,10 @@
 export interface Attendance {
+    id: number
     studentName: String
-    wasAbsent: boolean
+    wasPresent: boolean
     excuse: String
-    receipt: Number
+    receipt: number
+    approved: boolean
+    
+
 }

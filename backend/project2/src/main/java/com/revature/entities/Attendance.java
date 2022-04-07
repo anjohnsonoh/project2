@@ -12,17 +12,22 @@ public class Attendance {
 
 	@Id
 	@GeneratedValue
+	private int id;
+	
 	@Column(name = "name")
 	private String studentName;
 
-	@Column(name = "absent")
-	private boolean wasAbsent;
+	@Column(name = "present")
+	private boolean wasPresent;
 
 	@Column(name = "excuse")
 	private String excuse;
 
 	@Column(name="receipt")
-	private Integer receipt;
+	private int receipt;
+	
+	private boolean approved;
+	
 	
 	public Attendance() {
 		super();
@@ -31,9 +36,10 @@ public class Attendance {
 	public Attendance(String studentName, boolean wasAbsent, String excuse, Integer receipt) {
 		super();
 		this.studentName = studentName;
-		this.wasAbsent = wasAbsent;
+		this.wasPresent = wasPresent;
 		this.excuse = excuse;
 		this.receipt = receipt;
+		this.approved = approved;
 	}
 
 	public Integer getReceipt() {
@@ -52,12 +58,32 @@ public class Attendance {
 		this.studentName = studentName;
 	}
 
-	public boolean isWasAbsent() {
-		return wasAbsent;
+	public boolean isWasPresent() {
+		return wasPresent;
 	}
 
-	public void setWasAbsent(boolean wasAbsent) {
-		this.wasAbsent = wasAbsent;
+	public void setWasPresent(boolean wasPresent) {
+		this.wasPresent = wasPresent;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public boolean isApproved() {
+		return approved;
+	}
+
+	public void setApproved(boolean approved) {
+		this.approved = approved;
+	}
+
+	public void setReceipt(int receipt) {
+		this.receipt = receipt;
 	}
 
 	public String getExcuse() {

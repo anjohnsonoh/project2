@@ -30,12 +30,8 @@ public class AttendanceServiceImpl implements AttendanceService {
 	}
 
 	@Override
-	public Attendance update(Attendance request, boolean wasAbsent) {
-		Attendance fromDb = new Attendance();
-		fromDb.setStudentName(request.getStudentName());
-		fromDb.setWasAbsent(wasAbsent);
-		fromDb.setExcuse(request.getExcuse());
-		fromDb.setReceipt(request.getReceipt());
-		return attendanceRepository.save(fromDb);
+	public Attendance approveAttendance(int id, Attendance attendance) {
+		attendance.setApproved(true);
+		return attendanceRepository.save(attendance);
 	}
 }

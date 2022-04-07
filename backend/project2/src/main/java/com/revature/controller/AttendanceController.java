@@ -30,9 +30,9 @@ public class AttendanceController {
 		return attendanceService.findAll();
 	}
 	
-	@PostMapping(path="/{wasAbsent}")
-	public Attendance updateAttendance(@PathVariable ("wasAbsent") Boolean wasAbsent, @RequestBody Attendance attendance) {
-		return attendanceService.update(attendance, wasAbsent);
+	@PostMapping(path="/{id}")
+	public Attendance approveAttendance(@PathVariable ("id") int id, @RequestBody Attendance attendance) {
+		return attendanceService.approveAttendance(id, attendance);
 	}
 	
 	@GetMapping(path="{student}")
