@@ -19,10 +19,10 @@ public class AttendanceServiceImpl implements AttendanceService {
 		return attendanceRepository.findAll();
 	}
 	
-//	@Override
-//	public Attendance findByStudent(String student) {
-//		return attendanceRepository.findByStudent(student);
-//	}
+	@Override
+	public Attendance findByStudent(String student) {
+		return attendanceRepository.findByStudent(student);
+	}
 
 	@Override
 	public void add(Attendance attendance) {

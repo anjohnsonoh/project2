@@ -35,9 +35,9 @@ public class AttendanceController {
 		return attendanceService.update(attendance, wasAbsent);
 	}
 	
-//	@GetMapping(path="{student}")
-//	public Attendance getAttendancebyStudent(@PathVariable("name") String student) {
-//		return attendanceService.findByStudent(student);
-//	}
+	@GetMapping(path="{student}")
+	public Attendance getAttendancebyStudent(@PathVariable("name") String student) {
+		return attendanceService.findByStudent(student);
+	}
 	
 }

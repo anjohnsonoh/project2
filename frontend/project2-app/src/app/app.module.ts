@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { StudentLoginComponent } from './student-login/student-login.component';
 import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
     AllStudentsComponent,
     StudentLoginComponent,
     TeacherLoginComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,

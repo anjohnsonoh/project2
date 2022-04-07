@@ -12,5 +12,5 @@ public interface AttendanceService {
 
 	public Attendance update(Attendance attendance, boolean wasAbsent);
 	
-//	public Attendance findByStudent(String student);
+	public Attendance findByStudent(String student);
 }
