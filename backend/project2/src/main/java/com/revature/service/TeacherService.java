@@ -15,5 +15,7 @@ public interface TeacherService {
 	public Teacher update(Teacher request, Integer id);
 
 	public Teacher teacherLogin(String username, String password);
+	
+	public Teacher getByUsername(String username);
 
 }

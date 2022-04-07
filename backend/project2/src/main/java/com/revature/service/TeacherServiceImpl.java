@@ -29,6 +29,11 @@ public class TeacherServiceImpl implements TeacherService {
 	public Teacher teacherLogin(String username, String password) {
 		return teacherRepository.findByUsernameAndPassword(username, password);
 	}
+	
+	@Override
+	public Teacher getByUsername(String username) {
+		return teacherRepository.findByUsername(username);
+	}
 
 	@Override
 	public Teacher add(Teacher teacher) {

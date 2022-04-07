@@ -20,7 +20,7 @@ export class TeacherService {
   }
 
   public getTeacher(id: Number): Observable<Teacher> {
-    return this.http.get<Teacher>(`${this.apiServerUrl}/${id}`)
+    return this.http.get<Teacher>(`${this.apiServerUrl}/student/${id}`)
   }
 
   public getTeacheByusername(username: string)
@@ -29,10 +29,10 @@ export class TeacherService {
   }
 
   public addTeacher(teacher: Teacher): Observable<Teacher> {
-    return this.http.post<Teacher>(`${this.apiServerUrl}/add`, teacher)
+    return this.http.post<Teacher>(`${this.apiServerUrl}/teacher/add`, teacher)
   }
 
   public updateteacher(teacher: Teacher, id: Number) {
-    return this.http.post<Teacher>(`${this.apiServerUrl}/${id}`, teacher)
+    return this.http.post<Teacher>(`${this.apiServerUrl}/teacher/${id}`, teacher)
   }
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -61,4 +62,10 @@ public class TeacherController {
 	    public Teacher updateTeacher(@PathVariable("id") Integer id, @RequestBody Teacher teacher) {
 	    	return teacherService.update(teacher, id);
 	    }
+	 
+	 @RequestMapping(path = "/byUsername/{username}",  method = RequestMethod.GET)
+		public Teacher getTeacherByUsername(@PathVariable("username") String username)
+		{
+			return teacherService.getByUsername(username);
+		}
 }
