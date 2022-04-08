@@ -4,6 +4,6 @@ export interface Student{
     password: string,
     firstName: string,
     lastName: string,
-    Attendance: number,
+    attendance: number,
     teacher: string
 }

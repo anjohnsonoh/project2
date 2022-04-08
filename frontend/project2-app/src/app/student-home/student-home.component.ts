@@ -22,7 +22,7 @@ export class StudentHomeComponent implements OnInit {
         password:"",
         firstName:"",
         lastName:"",
-        Attendance:0,
+        attendance:0,
         teacher:""
       }
     }
