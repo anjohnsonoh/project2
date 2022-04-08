@@ -11,8 +11,8 @@ This project satisfies the requirements for p2 as assigned by Revature.
 ## Tech Stack
 * Java 8
 * Angular
-* HTML
-* CSS
+* Postgres
+* AWS EC2
 
 ## User Stories
 
