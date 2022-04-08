@@ -5,6 +5,4 @@ export interface Attendance {
     excuse: String
     receipt: number
     approved: boolean
-    
-
 }

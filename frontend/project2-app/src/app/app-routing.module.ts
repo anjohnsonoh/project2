@@ -6,6 +6,7 @@ import { RegisterStudentComponent } from './register-student/register-student.co
 import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
 import { StudentHomeComponent } from './student-home/student-home.component';
 import { StudentLoginComponent } from './student-login/student-login.component';
+import { SubmitAttendanceComponent } from './submit-attendance/submit-attendance.component';
 import { TeacherHomeComponent } from './teacher-home/teacher-home.component'
 import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
 
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'teacher-home', component: TeacherHomeComponent},
   {path: 'student-home', component: StudentHomeComponent},
   {path: 'student-login', component: StudentLoginComponent},
-  {path: 'teacher-login', component: TeacherLoginComponent}
+  {path: 'teacher-login', component: TeacherLoginComponent},
+  {path: 'submit-attendance',component: SubmitAttendanceComponent}
 ];
 
 @NgModule({

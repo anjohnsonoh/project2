@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { StudentLoginComponent } from './student-login/student-login.component';
 import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { SubmitAttendanceComponent } from './submit-attendance/submit-attendance.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     StudentLoginComponent,
     TeacherLoginComponent,
     HomepageComponent,
+    SubmitAttendanceComponent,
   ],
   imports: [
     BrowserModule,

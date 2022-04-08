@@ -1,3 +1,42 @@
-<p>student-home works!</p>
+<div class="center">
+<h1>Welcome {{student.firstName}}</h1></div>
+<br >
+    <div class="center">
+        <input type="button" value="Edit Login Info" onclick="location.href='/'">
+        <br>
+        <input type="button" value="Submit Attendence" onclick="location.href='/submit-attendance'">
+        <br>
+        <input type="button" value="View Attendence" onclick="location.href='/attendence'">
+        <br>
+        <input type="button" value="View Grades" onclick="location.href='/grade'">
+        <br>
+        <input type="submit" value="Logout" (click)="logout()"class="btn">
+        </div>
+        <div class="center">
+        <table>
+                <tr>
+                    <td>
+                        Firstname
+                    </td>
+                    <td>
+                        Lastname
+                    </td>
+                    <td>
+                        Username
+                    </td>
+                
+                </tr>
+                <tr>
+                    <td>
+                        {{student.firstName}}
+                    </td>
+                    <td>
+                        {{student.lastName}}
+                    </td>
+                    <td>
+                        {{student.username}}
+                    </td>
+                    </tr>
+            </table>
+        </div>
 
-<h1>Welcome {{student.firstName}}</h1>
