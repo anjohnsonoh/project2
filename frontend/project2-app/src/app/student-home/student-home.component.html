@@ -2,15 +2,15 @@
 <h1>Welcome {{student.firstName}}</h1></div>
 <br >
     <div class="center">
-        <input type="button" value="Edit Login Info" onclick="location.href='/'">
+        <input type="button" value="Edit Login Info" onclick="location.href='/edit-info'">
         <br>
         <input type="button" value="Submit Attendance" onclick="location.href='/submit-attendance'">
         <br>
-        <input type="button" value="View Attendance" onclick="location.href='/attendance'">
+        <input type="button" value="View Attendance" onclick="location.href='/view-attendance'">
         <br>
-        <input type="button" value="View Grades" onclick="location.href='/grade'">
-        <br>
-        <input type="submit" value="Logout" (click)="logout()"class="btn">
+        <!-- <input type="button" value="View Grades" onclick="location.href='/grade'">
+        <br> backend has not been created yet-->
+        <input type="button" value="Logout" (click)="logout()">
         </div>
         <div class="center">
         <table>
@@ -24,6 +24,10 @@
                     <td>
                         Username
                     </td>
+
+                    <td>
+                        Teacher
+                    </td>
                 
                 </tr>
                 <tr>
@@ -35,6 +39,9 @@
                     </td>
                     <td>
                         {{student.username}}
+                    </td>
+                    <td>
+                        {{student.teacher}}
                     </td>
                     </tr>
             </table>

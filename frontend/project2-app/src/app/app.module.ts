@@ -15,6 +15,8 @@ import { StudentLoginComponent } from './student-login/student-login.component';
 import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SubmitAttendanceComponent } from './submit-attendance/submit-attendance.component';
+import { EditInfoComponent } from './edit-info/edit-info.component';
+import { ViewAttendanceComponent } from './view-attendance/view-attendance.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { SubmitAttendanceComponent } from './submit-attendance/submit-attendance
     TeacherLoginComponent,
     HomepageComponent,
     SubmitAttendanceComponent,
+    EditInfoComponent,
+    ViewAttendanceComponent,
   ],
   imports: [
     BrowserModule,

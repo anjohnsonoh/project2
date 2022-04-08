@@ -23,7 +23,8 @@ export class StudentLoginComponent implements OnInit {
     password:"",
     firstName:"",
     lastName:"",
-    Attendance:0
+    Attendance:0,
+    teacher:""
 
   }}
   ngOnInit(): void {

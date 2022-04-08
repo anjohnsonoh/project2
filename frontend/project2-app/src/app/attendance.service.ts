@@ -22,11 +22,11 @@ export class AttendanceService {
   }
 
   public getAttendanceByStudent(student: String):  Observable<Attendance> {
-    return this.http.get<Attendance>(`${this.apiServerUrl}/${student}`)
+    return this.http.get<Attendance>(`${this.apiServerUrl}/attendance/${student}`)
   }
 
   public updateAttendance(attendance: Attendance, wasAbsent: boolean) {
-    return this.http.post<Attendance>(`${this.apiServerUrl}/${wasAbsent}`, attendance)
+    return this.http.post<Attendance>(`${this.apiServerUrl}/attendance/${wasAbsent}`, attendance)
 
   }
 }

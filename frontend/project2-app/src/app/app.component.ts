@@ -1,5 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Attendance } from './attendance';
+import { AttendanceService } from './attendance.service';
 import { Student } from './student';
 import { StudentService } from './student.service';
 import { Teacher } from './teacher';
@@ -14,6 +16,7 @@ export class AppComponent
 {
   public students: Student[] | undefined;
   public teachers: Teacher[] | undefined;
+  public attendance: Attendance[] | undefined;
   getStudents() {
     this.studentService.getStudents().subscribe(
       (response: Student[]) => {
@@ -35,8 +38,18 @@ export class AppComponent
       }
     )
   }
+  getAttendance() {
+    this.attendanceService.getAttendance().subscribe (
+      (response: Attendance[])=> {
+        this.attendance=response;
+      },
+      (error: HttpErrorResponse)=>{
+        alert(error.message);
+      }
+    )
+  }
   title = 'project2-app';
-  constructor(private studentService: StudentService, private teacherService: TeacherService){
+  constructor(private studentService: StudentService, private teacherService: TeacherService, private attendanceService: AttendanceService){
 
    }
 

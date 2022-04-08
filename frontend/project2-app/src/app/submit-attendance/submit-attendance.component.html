@@ -3,14 +3,21 @@
 <body>
   <div class="overall">
     <form name="addForm" #addForm="ngForm" (ngSubmit)="submitAttendance(addForm)">
-    <select id ="wasAbsent" class="form-control" required>
+
+      <label for="studentName" class="control-label">Student Name</label>
+      <input id="firstName" ngModel name="firstName" type="text" class="form-control" required>
+
+        <label for="input" class="form-label">Were you Present or Absent</label>
+      <select id="wasAbsent" class="form-control" required>
         <option value="">Make a Selection</option>
-     <option value="Present">Present</option>
-     <option value="Absent">Absent</option>
-    </select>
-    <label for="exampleFormControlInput1" class="form-label">Excuse</label>
-    <textarea cols="5" rows="5" type="text" class="form-control" id="excuse" ngModel name="excuse" placeholder="Enter Excuse" required></textarea>      
-        <button [disabled]="addForm.invalid" type="submit"> Submit </button>
+        <option value="Present">Present</option>
+        <option value="Absent">Absent</option>
+      </select>
+
+      <label for="input" class="form-label">Excuse</label>
+      <textarea cols="5" rows="5" type="text" class="form-control" id="excuse" ngModel name="excuse"
+        placeholder="Enter Excuse" required></textarea>
+      <button [disabled]="addForm.invalid" type="submit"> Submit </button>
     </form>
   </div>
 </body>
