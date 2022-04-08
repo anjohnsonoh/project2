@@ -12,6 +12,7 @@ public class Attendance {
 
 	@Id
 	@GeneratedValue
+	@Column(name = "id")
 	private int id;
 	
 	@Column(name = "name")
@@ -26,21 +27,44 @@ public class Attendance {
 	@Column(name="receipt")
 	private int receipt;
 	
+	@Column(name = "approved")
 	private boolean approved;
 	
+	@Column(name = "absent")
+	private boolean absent;
 	
+	
+	public boolean isAbsent() {
+		return absent;
+	}
+
+
+
+	public void setAbsent(boolean absent) {
+		this.absent = absent;
+	}
+
+
+
 	public Attendance() {
 		super();
 	}
 
-	public Attendance(String studentName, boolean wasAbsent, String excuse, Integer receipt) {
+
+
+	public Attendance(int id, String studentName, boolean wasPresent, String excuse, int receipt, boolean approved,
+			boolean absent) {
 		super();
+		this.id = id;
 		this.studentName = studentName;
 		this.wasPresent = wasPresent;
 		this.excuse = excuse;
 		this.receipt = receipt;
 		this.approved = approved;
+		this.absent = absent;
 	}
+
+
 
 	public Integer getReceipt() {
 		return receipt;

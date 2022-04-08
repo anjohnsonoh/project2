@@ -4,14 +4,14 @@
   <div class="overall">
     <form name="addForm" #addForm="ngForm" (ngSubmit)="submitAttendance(addForm)">
 
-      <label for="studentName" class="control-label">Student Name</label>
-      <input id="studentName" ngModel name="studentName" type="text" class="form-control" required>
+      <!-- <label for="studentName" class="control-label">Student Name</label>
+      <input id="studentName" ngModel name="studentName" type="text" class="form-control" required> -->
 
         <label for="input" class="form-label">Were you Present or Absent</label>
-      <select id="wasAbsent" class="form-control" required>
-        <option value="">Make a Selection</option>
-        <option value="Present">Present</option>
-        <option value="Absent">Absent</option>
+      <select id="wasPresent" ngModel name="wasPresent" class="form-control" required>
+        <option id= "wasPresent" ngModel name="wasPresent" value="">Make a Selection</option>
+        <option id="wasPresent" ngModel name="wasPresent" value="True">Present</option>
+        <option id="wasPresent" ngModel name="wasPresent" value="True">Absent</option>
       </select>
 
       <label for="input" class="form-label">Excuse</label>

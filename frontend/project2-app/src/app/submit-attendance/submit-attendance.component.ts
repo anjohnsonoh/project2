@@ -35,6 +35,7 @@ export class SubmitAttendanceComponent implements OnInit {
       id:0,
       studentName:"",
       wasPresent:false,
+      absent:false,
       excuse:"",
       receipt:0,
       approved:false
@@ -43,6 +44,7 @@ export class SubmitAttendanceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getStudent();
     this.getAttendance();
   }
 
@@ -59,17 +61,27 @@ export class SubmitAttendanceComponent implements OnInit {
   }
 
   submitAttendance(addForm: NgForm): void {
+    addForm.value.receipt=this.student.id
+    addForm.value.studentName=this.student.firstName
+    console.log(addForm);
     this.attendanceServie.addAttendance(addForm.value).subscribe(
     (response: Attendance)=> {
-      this.attendanceServie.addAttendance(addForm.value).subscribe(
-        (esponse: Attendance)=>{
           this.appComponent.getStudents();
         }
-      )
-    },
+      ),
       (error:HttpErrorResponse) => {
         alert(error.message)
       }
-    )
   }
+
+  getStudent(): void {
+    this.studentService.getStudentByUsername(localStorage.getItem('loggedInStudent') || '').subscribe(
+      (data:Student)=>{
+        this.student = data as Student;
+        console.log(data);
+      }),
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    }
 }
