@@ -36,6 +36,6 @@ export class StudentService {
 
   public updateStudent(student: Student, id: Number)
   {
-    return this.http.post<Student>(`${this.apiServerUrl}/studnet/${id}`, student)
+    return this.http.post<Student>(`${this.apiServerUrl}/student/${id}`, student)
   }
 }
