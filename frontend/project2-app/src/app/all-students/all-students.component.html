@@ -1,1 +1,29 @@
-<p>all-students works!</p>
+<body>
+
+    <h1>
+        All Students
+    </h1>
+    <br>
+    <div class="center">
+
+    <table> 
+        <tr>
+            <td>Id</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Username</td>
+            <td>Teacher</td>
+            <td>Attendance</td>
+        </tr>
+        <tr *ngFor="let student of students">
+            <td>{{student.id}}</td>
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td>{{student.username}}</td>
+            <td>{{student.teacher}}</td>
+            <td>{{student.attendance}}</td>
+        </tr>
+    </table>
+</div>
+
+    </body>
