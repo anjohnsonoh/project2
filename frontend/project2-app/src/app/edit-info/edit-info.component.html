@@ -1,1 +1,32 @@
-<p>edit-info works!</p>
+<div class="center">
+<p>Update Information</p></div>
+<div class="center">
+<form #studentForm="ngForm" (ngSubmit)="studentForm.form.valid && updateStudent()">
+<div class="row">
+ <div class="col-md-2">Username</div>  
+ <div class="col-md-10">
+ <input type="text" required name="usename" [(ngModel)]="student.username"/>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-2">Firstname</div>  
+    <div class="col-md-10">
+    <input type="text" required name="firstName" [(ngModel)]="student.firstName"/>
+   </div>
+   </div>
+   <div class="row">
+    <div class="col-md-2">Lastname</div>  
+    <div class="col-md-10">
+    <input type="text" required name="lastName" [(ngModel)]="student.lastName"/>
+   </div>
+   </div>
+   <div class="row">
+    <div class="col-md-2">Password</div>  
+    <div class="col-md-10">
+    <input type="text" required name="password" [(ngModel)]="student.password"/>
+   </div>
+   </div>
+   <button type="submit" name="send" value="update" class="btn btn-dark">Update</button>
+
+</form>
+</div>
