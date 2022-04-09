@@ -1,11 +1,11 @@
 <div class="center">
 <p>Update Student Information</p></div>
 <div class="center">
-<form #studentForm="ngForm" (ngSubmit)="studentForm.form.valid && updateStudent()">
+<form name = "studentForm" #studentForm="ngForm" (ngSubmit)="studentForm.form.valid && updateStudent(studentForm)">
 <div class="row">
  <div class="col-md-2">Username</div>  
  <div class="col-md-10">
- <input type="text" required name="usename" [(ngModel)]="student.username"/>
+ <input type="text" required name="username" [(ngModel)]="student.username"/>
 </div>
 </div>
 <div class="row">

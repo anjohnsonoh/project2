@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
@@ -26,14 +26,22 @@ export class EditInfoComponent implements OnInit {
       }
     }
    ngOnInit(): void{
-     this.updateStudent();
 
    }
-   updateStudent(): void {
+   updateStudent(studentForm: NgForm): void {
     this.studentService.getStudentByUsername(localStorage.getItem('loggedInStudent') || '').subscribe(
       (data:Student)=>{
-        this.student = data as Student;
         console.log(data);
+        studentForm.value.attendance = data.attendance;
+        studentForm.value.teacher = data.teacher;
+        this.studentService.updateStudent(studentForm.value, data.id).subscribe(
+          (response:Student)=>{
+            console.log("Successfully Updated");
+            localStorage.setItem('loggedInStudent', response.username);
+            this.student = response;
+            console.log(response)
+          }
+        )
       }),
       (error: HttpErrorResponse) => {
         alert(error.message);
