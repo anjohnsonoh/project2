@@ -4,6 +4,7 @@ import { AppComponent } from '../app.component';
 import { Student } from '../student';
 import { StudentService } from '../student.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class RegisterStudentComponent implements OnInit {
         (response: Student) => {
           console.log(response);
           this.appComponent.getStudents();
+          alert("New Student Added Successfully")
         },
         (error: HttpErrorResponse) => { 
           alert(error.message)

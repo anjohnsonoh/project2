@@ -1,4 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Attendance } from '../attendance';
+import { AttendanceService } from '../attendance.service';
+import { TeacherService } from '../teacher.service';
 
 @Component({
   selector: 'app-view-attendance',
@@ -7,9 +12,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewAttendanceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private attendanceService: AttendanceService,
+    private router: Router,
+    public listAttendance: Attendance[]) {
+    console.log("Attendance Service called")
+  }
 
   ngOnInit(): void {
+    this.getAllAttendance();
+  }
+
+  public getAllAttendance(): void{
+    this.attendanceService.getAttendance().subscribe(
+      (response: Attendance[])=>{
+        this.listAttendance = response;
+      },
+      (error: HttpErrorResponse)=>{
+        alert(error.message);
+      }
+    )
+  }
+
+  public logout(): void{
+    console.log("logout")
+    localStorage.setItem('loggedInTeacher', '');
+    this.router.navigate(['/teacher-login'])
   }
 
 }

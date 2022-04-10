@@ -17,6 +17,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SubmitAttendanceComponent } from './submit-attendance/submit-attendance.component';
 import { EditInfoComponent } from './edit-info/edit-info.component';
 import { ViewAttendanceComponent } from './view-attendance/view-attendance.component';
+import { EditTeacherComponent } from './edit-teacher/edit-teacher.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ViewAttendanceComponent } from './view-attendance/view-attendance.compo
     SubmitAttendanceComponent,
     EditInfoComponent,
     ViewAttendanceComponent,
+    EditTeacherComponent,
   ],
   imports: [
     BrowserModule,

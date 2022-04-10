@@ -35,4 +35,5 @@ export class TeacherService {
   public updateteacher(teacher: Teacher, id: Number) {
     return this.http.post<Teacher>(`${this.apiServerUrl}/teacher/${id}`, teacher)
   }
+  
 }

@@ -38,4 +38,15 @@ export class StudentService {
   {
     return this.http.post<Student>(`${this.apiServerUrl}/student/${id}`, student)
   }
+
+  public deleteStudent(id: number){
+    return this.http.delete<void>(`${this.apiServerUrl}/student/delete/${id}`)
+  }
+
+  public updateStudent2(student: Student)
+  {
+    return this.http.post<Student>(`${this.apiServerUrl}/student/update`, student)
+  }
+
+
 }
