@@ -12,9 +12,10 @@ import { TeacherService } from '../teacher.service';
 })
 export class ViewAttendanceComponent implements OnInit {
 
+  public listAttendance!: Attendance[];
+
   constructor(private attendanceService: AttendanceService,
-    private router: Router,
-    public listAttendance: Attendance[]) {
+    private router: Router) {
     console.log("Attendance Service called")
   }
 
