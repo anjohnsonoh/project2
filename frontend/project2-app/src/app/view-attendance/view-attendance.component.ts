@@ -34,6 +34,8 @@ export class ViewAttendanceComponent implements OnInit {
     )
   }
 
+  //public approveAttendance(attendance: Attendance): void{}
+
   public logout(): void{
     console.log("logout")
     localStorage.setItem('loggedInTeacher', '');

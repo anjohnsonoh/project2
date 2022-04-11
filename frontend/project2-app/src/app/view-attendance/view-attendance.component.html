@@ -22,6 +22,31 @@
 </head>
 
 <body>
-
+    <ng-container class="attendanceTable" id="attendanceTable">
+        <tr>
+            <th>Attendance ID</th>
+            <th>Student Name</th>
+            <th>Present?</th>
+            <th>Absent?</th>
+            <th>Excuse</th>
+            <th>Receipt</th>
+            <th>Approved?</th>
+        </tr>
+        <tr *ngFor="let attendence of listAttendance">
+            <td{{attendence.id}}></td>
+            <td{{attendence.studentName}}></td>
+            <td{{attendence.wasPresent}}></td>
+            <td{{attendence.absent}}></td>
+            <td{{attendence.excuse}}></td>
+            <td{{attendence.receipt}}></td>
+            <td{{attendence.approved}}></td>
+            <td>
+                <div>
+                    <button class="button">Approve</button>
+                    <button class="button">Reject</button>
+                </div>
+            </td>
+        </tr>
+    </ng-container>
 </body>
 </html>
