@@ -1,8 +1,15 @@
-<p>Teacher Registeration</p>
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <h5 class="navstyle" style="color: honeydew"> Anjoli Academic Management System | </h5>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor2"
+     aria-controls="navbarColor2" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor2">
+  </div>
+</nav>
 <body>
   <div class="overall">
-    <h1>Register</h1>
+    <h1>Register Teacher</h1>
     <form name="addForm" #addForm="ngForm" (ngSubmit)="addTeacher(addForm)">
       <div>
         <input id="username" ngModel name="username" type="text" placeholder="Username" required>

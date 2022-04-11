@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllStudentsComponent } from './all-students/all-students.component';
 import { EditInfoComponent } from './edit-info/edit-info.component';
+import { EditTeacherComponent } from './edit-teacher/edit-teacher.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { RegisterStudentComponent } from './register-student/register-student.component';
 import { RegisterTeacherComponent } from './register-teacher/register-teacher.component';
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'teacher-login', component: TeacherLoginComponent},
   {path: 'submit-attendance',component: SubmitAttendanceComponent},
   {path: 'edit-info', component: EditInfoComponent},
-  {path: 'view-attendance', component: ViewAttendanceComponent}
+  {path: 'view-attendance', component: ViewAttendanceComponent},
+  {path: 'edit-teacher', component: EditTeacherComponent}
 ];
 
 @NgModule({

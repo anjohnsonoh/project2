@@ -47,4 +47,9 @@ export class EditInfoComponent implements OnInit {
         alert(error.message);
       }
     }
+    logout(): void{
+      console.log("logout")
+      localStorage.setItem('loggedInStudent', '');
+      this.router.navigate(['/student-login'])
+    }
  }

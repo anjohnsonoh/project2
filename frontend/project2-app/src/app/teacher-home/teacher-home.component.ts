@@ -17,15 +17,33 @@ export class TeacherHomeComponent implements OnInit {
 
   public students!: Student[];
   public loggedInUser: Student | undefined;
-  public editStudent!: Student;
-  public deleteStudent!: Student;
+  public editStudent: Student;
+  public deleteStudent: Student;
   public teacher!: Teacher;
 
   constructor(private studentService: StudentService,
     private teacherService: TeacherService,
     private route: ActivatedRoute,
     private router: Router){
-    console.log("Called")
+
+      this.editStudent={
+        id:0,
+        username:"",
+        password:"",
+        firstName:"",
+        lastName:"",
+        attendance:0,
+        teacher:""        
+      }
+      this.deleteStudent={
+        id:0,
+        username:"",
+        password:"",
+        firstName:"",
+        lastName:"",
+        attendance:0,
+        teacher:""
+      }
    }
   ngOnInit(): void {
     this.getStudents();
@@ -58,7 +76,11 @@ export class TeacherHomeComponent implements OnInit {
   }
 
   public onUpdateStudent (student: Student): void {
-    this.studentService.updateStudent2(student).subscribe(
+    console.log(student)
+    student.attendance = this.editStudent.attendance;
+    student.teacher = this.editStudent.teacher;
+    console.log(student)
+    this.studentService.updateStudent(student, this.editStudent.id).subscribe(
       (response: Student) => {
         console.log(response);
         this.getStudents();
@@ -72,7 +94,6 @@ export class TeacherHomeComponent implements OnInit {
   public onDeleteStudent (id: number): void {
     this.studentService.deleteStudent(id).subscribe(
       (response: void) => {
-        console.log(response);
         this.getStudents();
       },
       (error: HttpErrorResponse) => {
@@ -108,6 +129,7 @@ export class TeacherHomeComponent implements OnInit {
     }
     if (mode === 'edit') {
       this.editStudent = student;
+      console.log(this.editStudent);
       button.setAttribute('data-target', '#updateStudentModal');
     }
     if (mode === 'delete') {

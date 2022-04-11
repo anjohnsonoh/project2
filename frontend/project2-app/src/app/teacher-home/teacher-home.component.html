@@ -1,11 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-   <a class="navstyle" style="color: honeydew"> Anjoli Academic Management System | Teacher Homepage</a>
+   <a class="navstyle" style="color: honeydew"> Anjoli Academic Management System | </a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor2"
       aria-controls="navbarColor2" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
    </button>
    <div class="collapse navbar-collapse" id="navbarColor2">
       <ul class="navbar-nav mr-auto">
+         <li class="navbar-item">
+            <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
+               onclick="window.location.href='/edit-teacher'">Update Personal Info</a>
+         </li>
          <li class="navbar-item">
             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
                onclick="window.location.href='/register-student'">Add New Student</a>
@@ -30,7 +34,7 @@
             <div class="card-body row">
                <div class="col-6"></div>
                <div class="col-6 card-title align-self-center mb-0">
-                  <h5>{{student.firstName}} {{student.lastName}}</h5>
+                  <h5> {{student.firstName}} {{student.lastName}}</h5>
                   <p class="m-0">{{student.id}}</p>
                   <p class="m-0">{{student.teacher}}</p>
                </div>
@@ -38,9 +42,9 @@
             <div class="card-body">
                <div class="float-right btn-group btn-group-sm">
                   <a (click)="onOpenModal(student, 'edit')" class="btn btn-primary tooltips" data-placement="top"
-                     data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                     data-original-title="Edit">Edit<i class="fa fa-pencil"></i> </a>
                   <a (click)="onOpenModal(student, 'delete')" class="btn btn-secondary tooltips" data-placement="top"
-                     data-original-title="Delete"><i class="fa fa-times"></i></a>
+                     data-original-title="Delete">Delete<i class="fa fa-times"></i></a>
                </div>
             </div>
          </div>

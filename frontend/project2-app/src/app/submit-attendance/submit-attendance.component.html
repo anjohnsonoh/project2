@@ -1,5 +1,32 @@
-<p>Submit Attendance</p>
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <h5 class="navstyle" style="color: honeydew"> Anjoli Academic Management System | </h5>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor2"
+     aria-controls="navbarColor2" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor2">
+     <ul class="navbar-nav mr-auto">
+        <li class="navbar-item">
+           <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
+              onclick="window.location.href='/student-home'">Student Home</a>
+        </li>
+        <li class="navbar-item">
+           <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
+              onclick="window.location.href='/edit-info'">Update Info</a>
+        </li>
+        <li class="navbar-item">
+           <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" onclick="window.location.href='/view-attendance'"
+              >Review Student Attendance</a>
+        </li>
+        <li class="navbar-item">
+           <!-- <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" (click)="updateTeacher()">Update Personal Info</a> -->
+        </li>
+        <li class="navbar-item">
+           <a class="navbar-link" type="button" style="color: honeydew" (click)="logout()">Logout</a>
+        </li>
+     </ul>
+  </div>
+</nav>
 <body>
   <div class="overall">
     <form name="addForm" #addForm="ngForm" (ngSubmit)="submitAttendance(addForm)">
@@ -11,7 +38,7 @@
       <select id="wasPresent" ngModel name="wasPresent" class="form-control" required>
         <option id= "wasPresent" ngModel name="wasPresent" value="">Make a Selection</option>
         <option id="wasPresent" ngModel name="wasPresent" value="True">Present</option>
-        <option id="wasPresent" ngModel name="wasPresent" value="True">Absent</option>
+        <option id="wasPresent" ngModel name="wasPresent" value="False">Absent</option>
       </select>
 
       <label for="input" class="form-label">Excuse</label>

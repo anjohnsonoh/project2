@@ -20,8 +20,8 @@ public class AttendanceServiceImpl implements AttendanceService {
 	}
 	
 	@Override
-	public Attendance findByStudent(String student) {
-		return attendanceRepository.findByStudent(student);
+	public List<Attendance> findByStudent(int id) {
+		return attendanceRepository.findByStudent(id);
 	}
 
 	@Override
@@ -33,5 +33,15 @@ public class AttendanceServiceImpl implements AttendanceService {
 	public Attendance approveAttendance(int id, Attendance attendance) {
 		attendance.setApproved(true);
 		return attendanceRepository.save(attendance);
+	}
+	@Override
+	public List<Attendance> findUnapproved()
+	{
+		return attendanceRepository.findUnapproved();
+	}
+	@Override
+	public void deleteAttendance(int id)
+	{
+		attendanceRepository.deleteById(id);
 	}
 }

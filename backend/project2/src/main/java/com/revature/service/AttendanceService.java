@@ -12,5 +12,9 @@ public interface AttendanceService {
 
 	public Attendance approveAttendance(int id, Attendance attendance);
 	
-	public Attendance findByStudent(String student);
+	public List<Attendance> findByStudent(int id);
+	
+	public List<Attendance> findUnapproved();
+	
+	public void deleteAttendance(int id);
 }

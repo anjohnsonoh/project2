@@ -17,7 +17,6 @@ export class AttendanceService {
       id: 0,
       studentName: "",
       wasPresent: true,
-      absent: false,
       excuse: "",
       receipt: 0,
       approved: false
@@ -25,7 +24,10 @@ export class AttendanceService {
    }
 
 
-
+  public getUnapproved(): Observable<Attendance[]>
+  {
+    return this.http.get<Attendance[]>(`${this.apiServerUrl}/attendance/unapproved`)
+  }
   public addAttendance(attendance: Attendance): Observable<Attendance> {
     return this.http.post<Attendance>(`${this.apiServerUrl}/attendance/add`, attendance)
   }
@@ -34,15 +36,22 @@ export class AttendanceService {
     return this.http.get<Attendance[]>(`${this.apiServerUrl}/attendance`);
   }
 
-  public getAttendanceByStudent(student: String):  Observable<Attendance> {
-    return this.http.get<Attendance>(`${this.apiServerUrl}/attendance/${student}`)
+  public getAttendanceByStudent(id: number):  Observable<Attendance[]> {
+    return this.http.get<Attendance[]>(`${this.apiServerUrl}/attendance/byStudent/${id}`);
   }
 
   public updateAttendance(attendance: Attendance, id: number) {
-    return this.http.post<Attendance>(`${this.apiServerUrl}/attendance/${id}`, attendance)
+    return this.http.post<Attendance>(`${this.apiServerUrl}/attendance/update/${id}`, attendance)
 
   }
-
+  public approveAttendance(attendance: Attendance, id: number)
+  {
+    return this.http.post<Attendance>(`${this.apiServerUrl}/attendance/${id}`, attendance);
+  }
+  public denyAttendance(id: number)
+  {
+    return this.http.delete<void>(`${this.apiServerUrl}/attendance/${id}`)
+  }
 /*   public approveAttendance(attendance: Attendance): Observable<Attendance>{
     this.attendance.approved=true
     return this.http.post<Attendance>(`${this.apiServerUrl}/attendance/${approved}`, attendance)

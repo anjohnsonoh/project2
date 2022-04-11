@@ -1,19 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <h5 class="navstyle" style="color: honeydew"> Anjoli Academic Management System | </h5>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor2"
+       aria-controls="navbarColor2" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor2">
+       <ul class="navbar-nav mr-auto">
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
+                onclick="window.location.href='/edit-info'">Update Info</a>
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
+                onclick="window.location.href='/submit-attendance'">Submit Attendance</a>
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" onclick="window.location.href='/view-attendance'"
+                >Review Student Attendance</a>
+          </li>
+          <li class="navbar-item">
+             <!-- <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" (click)="updateTeacher()">Update Personal Info</a> -->
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew" (click)="logout()">Logout</a>
+          </li>
+       </ul>
+    </div>
+ </nav>
 <div class="center">
 <h1>Welcome {{student.firstName}}</h1></div>
 <br >
-    <div class="center">
-        <input type="button" value="Edit Login Info" onclick="location.href='/edit-info'">
-        <br>
-        <input type="button" value="Submit Attendance" onclick="location.href='/submit-attendance'">
-        <br>
-        <input type="button" value="View Attendance" onclick="location.href='/view-attendance'">
-        <br>
-        <!-- <input type="button" value="View Grades" onclick="location.href='/grade'">
-        <br> backend has not been created yet-->
-        <input type="button" value="Logout" (click)="logout()">
-        </div>
+
         <div class="center">
-        <table>
+        <table style="width: 50%; border: 1%; border-style: solid; text-align: center;">
                 <tr>
                     <td>
                         Firstname

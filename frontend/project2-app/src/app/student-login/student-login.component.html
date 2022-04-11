@@ -1,3 +1,12 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <h5 class="navstyle" style="color: honeydew"> Anjoli Academic Management System | </h5>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor2"
+       aria-controls="navbarColor2" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor2">
+    </div>
+ </nav>
 <div class="container col-md-6">
     <h1 style="color: black;"> Student Login</h1>
     <form name="loginForm" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
@@ -10,7 +19,9 @@
             <label for="exampleFormControlInput1" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" ngModel name="password" placeholder="Enter password" required>
         </div>
-        <button [disabled]=loginForm.invalid type="submit" class="btn btn-primary">Login</button>
+        <button style="width: 20%" [disabled]=loginForm.invalid type="submit" class="btn btn-primary">Login</button>
+        <button style="width: 20%; margin-left: 20%; background-color: gray; outline-color: gray;"d type="submit" class="btn btn-primary" onclick="location.href='/'">Home</button>
+
     </form>
     </div>
     

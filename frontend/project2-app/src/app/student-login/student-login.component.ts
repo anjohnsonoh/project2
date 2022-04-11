@@ -39,6 +39,7 @@ export class StudentLoginComponent implements OnInit {
         
         if (data.password == loginForm.value.password) {
           localStorage.setItem('loggedInStudent', data.username);
+          localStorage.setItem('loggedInTeacher', '')
           console.log("Login Success")
           this.router.navigate(['/student-home']);
         } else {

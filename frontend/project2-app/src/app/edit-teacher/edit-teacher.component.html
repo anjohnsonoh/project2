@@ -1,1 +1,66 @@
-<p>edit-teacher works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navstyle" style="color: honeydew"> Anjoli Academic Management System | </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor2"
+       aria-controls="navbarColor2" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor2">
+       <ul class="navbar-nav mr-auto">
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
+                onclick="window.location.href='/teacher-home'">Teacher Home</a>
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
+                onclick="window.location.href='/register-student'">Add New Student</a>
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" onclick="window.location.href='/view-attendance'"
+                >Review Student Attendance</a>
+          </li>
+          <li class="navbar-item">
+             <!-- <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" (click)="updateTeacher()">Update Personal Info</a> -->
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew" (click)="logout()">Logout</a>
+          </li>
+       </ul>
+    </div>
+ </nav>
+<div class="center">
+    <p>Update Teacher Information</p></div>
+    <div class="center">
+    <form name = "teacherForm" #teacherForm="ngForm" (ngSubmit)="teacherForm.form.valid && updateTeacher(teacherForm)">
+    <div class="row">
+     <div class="col-md-2">Username</div>  
+     <div class="col-md-10">
+     <input type="text" required name="username" [(ngModel)]="teacher.username"/>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">Firstname</div>  
+        <div class="col-md-10">
+        <input type="text" required name="firstName" [(ngModel)]="teacher.firstName"/>
+       </div>
+       </div>
+       <div class="row">
+        <div class="col-md-2">Lastname</div>  
+        <div class="col-md-10">
+        <input type="text" required name="lastName" [(ngModel)]="teacher.lastName"/>
+       </div>
+       </div>
+       <div class="row">
+        <div class="col-md-2">Password</div>  
+        <div class="col-md-10">
+        <input type="text" required name="password" [(ngModel)]="teacher.password"/>
+       </div>
+       <div class="col-md-2">Role</div>  
+       <div class="col-md-10">
+       <input type="text" required name="role" [(ngModel)]="teacher.role"/>
+      </div>
+       </div>
+       
+       <button [disabled]="teacherForm.invalid" type="submit" name="send" value="update" class="btn btn-dark">Update</button>
+    
+    </form>
+    </div>

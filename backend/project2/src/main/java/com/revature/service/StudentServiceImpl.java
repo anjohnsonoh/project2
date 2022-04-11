@@ -49,6 +49,7 @@ public class StudentServiceImpl implements StudentService {
 		fromDb.setFirstName(request.getFirstName());
 		fromDb.setLastName(request.getLastName());
 		fromDb.setPassword(request.getPassword());
+		fromDb.setTeacher(request.getTeacher());
 		return studentRepository.save(fromDb);
 		// TODO Auto-generated method stub
 		

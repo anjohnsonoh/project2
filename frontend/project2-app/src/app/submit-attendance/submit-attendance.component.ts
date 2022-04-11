@@ -44,10 +44,10 @@ export class SubmitAttendanceComponent implements OnInit {
 
   ngOnInit(): void {
     this.getStudent();
-    this.getAttendance();
+    //this.getAttendance();
   }
 
-  getAttendance(): void {
+  /*getAttendance(): void {
     this.attendanceServie.getAttendanceByStudent(localStorage.getItem('loggedInStudent') || '').subscribe(
       (data:Attendance)=>{
         this.attendance = data as Attendance;
@@ -57,15 +57,16 @@ export class SubmitAttendanceComponent implements OnInit {
     (error: HttpErrorResponse)=>{
       alert(error.message);
     } 
-  }
+  }*/
 
   submitAttendance(addForm: NgForm): void {
     addForm.value.receipt=this.student.id
     addForm.value.studentName=this.student.firstName
-    console.log(addForm);
+    console.log(addForm.value);
     this.attendanceServie.addAttendance(addForm.value).subscribe(
     (response: Attendance)=> {
           this.appComponent.getStudents();
+          this.router.navigate(['student-home'])
         }
       ),
       (error:HttpErrorResponse) => {
@@ -82,5 +83,10 @@ export class SubmitAttendanceComponent implements OnInit {
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
+    }
+    logout(): void{
+      console.log("logout")
+      localStorage.setItem('loggedInStudent', '');
+      this.router.navigate(['/student-login'])
     }
 }

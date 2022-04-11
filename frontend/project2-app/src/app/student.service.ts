@@ -31,7 +31,7 @@ export class StudentService {
   }
   public incrementAttendance(id: Number): Observable<Student>
   {
-    return this.http.put<Student>(`${this.apiServerUrl}/student/increment/${id}`, 1)
+    return this.http.put<Student>(`${this.apiServerUrl}/student/${id}`, 1)
   }
 
   public updateStudent(student: Student, id: Number)
@@ -41,11 +41,6 @@ export class StudentService {
 
   public deleteStudent(id: number){
     return this.http.delete<void>(`${this.apiServerUrl}/student/delete/${id}`)
-  }
-
-  public updateStudent2(student: Student)
-  {
-    return this.http.post<Student>(`${this.apiServerUrl}/student/update`, student)
   }
 
 

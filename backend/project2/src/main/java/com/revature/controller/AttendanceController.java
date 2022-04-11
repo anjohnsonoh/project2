@@ -3,6 +3,7 @@ package com.revature.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,9 +36,18 @@ public class AttendanceController {
 		return attendanceService.approveAttendance(id, attendance);
 	}
 	
-	@GetMapping(path="{student}")
-	public Attendance getAttendancebyStudent(@PathVariable("name") String student) {
-		return attendanceService.findByStudent(student);
+	@GetMapping(path="/byStudent/{id}")
+	public List<Attendance> getAttendancebyStudent(@PathVariable("id") int id) {
+		return attendanceService.findByStudent(id);
 	}
-	
+	@GetMapping(path="/unapproved")
+	public List<Attendance> getUnapproved()
+	{
+		return attendanceService.findUnapproved();
+	}
+	@DeleteMapping(path="/{id}")
+	public void deleteAttendance(@PathVariable ("id") int id)
+	{
+		attendanceService.deleteAttendance(id);
+	}
 }

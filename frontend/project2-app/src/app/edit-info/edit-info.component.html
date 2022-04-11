@@ -1,3 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <h5 class="navstyle" style="color: honeydew"> Anjoli Academic Management System | </h5>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor2"
+       aria-controls="navbarColor2" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor2">
+       <ul class="navbar-nav mr-auto">
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
+                onclick="window.location.href='/student-home'">Student Home</a>
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
+                onclick="window.location.href='/submit-attendance'">Submit Student Attendance</a>
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" onclick="window.location.href='/view-attendance'"
+                >Review Student Attendance</a>
+          </li>
+          <li class="navbar-item">
+             <!-- <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" (click)="updateTeacher()">Update Personal Info</a> -->
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew" (click)="logout()">Logout</a>
+          </li>
+       </ul>
+    </div>
+ </nav>
 <div class="center">
 <p>Update Student Information</p></div>
 <div class="center">
@@ -26,7 +55,7 @@
     <input type="text" required name="password" [(ngModel)]="student.password"/>
    </div>
    </div>
-   <button type="submit" name="send" value="update" class="btn btn-dark">Update</button>
+   <button [disabled]="studentForm.invalid" type="submit" name="send" value="update" class="btn btn-dark">Update</button>
 
 </form>
 </div>

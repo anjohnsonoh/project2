@@ -1,10 +1,14 @@
 package com.revature.entities;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "Attendance")
@@ -29,7 +33,6 @@ public class Attendance {
 	
 	@Column(name = "approved")
 	private boolean approved;
-
 
 	public Attendance() {
 		super();

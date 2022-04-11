@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav *ngIf="teacherLoggedIn" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navstyle" style="color: honeydew"> Anjoli Academic Management System |</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor2"
        aria-controls="navbarColor2" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,15 +8,15 @@
        <ul class="navbar-nav mr-auto">
         <li class="navbar-item">
             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
-                onclick="window.location.href='/teacher-home'">Home</a>
+                onclick="window.location.href='/teacher-home'">Teacher Home</a>
         </li>
           <li class="navbar-item">
              <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
-                onclick="window.location.href='/register-student'">Add Student</a>
+             onclick="window.location.href='/edit-teacher'">Update Personal Info</a>
           </li>
           <li class="navbar-item">
-             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" onclick="window.location.href='/edit-teacher'"
-                >Update Personal Info</a>
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" 
+             onclick="window.location.href='/register-student'">Add New Student</a>
           </li>
           <li class="navbar-item">
              <!-- <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" (click)="updateTeacher()">Update Personal Info</a> -->
@@ -27,17 +27,66 @@
        </ul>
     </div>
  </nav>
-
+ <nav *ngIf="studentLoggedIn" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <h5 class="navstyle" style="color: honeydew"> Anjoli Academic Management System | </h5>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor2"
+       aria-controls="navbarColor2" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor2">
+       <ul class="navbar-nav mr-auto">
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
+                onclick="window.location.href='/student-home'">Student Home</a>
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
+                onclick="window.location.href='/edit-info'">Update Info</a>
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" 
+             onclick="window.location.href='/submit-attendance'">Submit Student Attendance</a>
+          </li>
+          <li class="navbar-item">
+             <!-- <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" (click)="updateTeacher()">Update Personal Info</a> -->
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew" (click)="logout()">Logout</a>
+          </li>
+       </ul>
+    </div>
+  </nav>
  <body>
 <div style="max-width: 100%; margin: left">
         <strong> View Attendance </strong>
     </div>
 <br>
-<div style="width: 100%; margin: left;">
+<div *ngIf="studentLoggedIn"style="width: 100%; margin: left;">
     <table style="text-align: center">
         <thead>
             <tr>
-                <th scope="col">ID</th>
+                <th scope="col">Student Name</th>
+                <th scope="col">Present</th>
+                <th scope="col">Excuse</th>
+                <th scope="col">Student ID</th>
+                <th scope="col">Approved</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let attendance of listAttendance">
+            <td>{{attendance.studentName}}</td>
+            <td>{{attendance.wasPresent}}</td>
+            <td>{{attendance.excuse}}</td>
+            <td>{{attendance.receipt}}</td>
+            <td>{{attendance.approved}}</td>
+
+        </tr>
+        <tbody id="table"></tbody>
+    </table>
+</div>
+<div *ngIf="teacherLoggedIn"style="width: 100%; margin: left;">
+    <table style="text-align: center">
+        <thead>
+            <tr>
                 <th scope="col">Student Name</th>
                 <th scope="col">Present</th>
                 <th scope="col">Excuse</th>
@@ -47,14 +96,13 @@
             </tr>
         </thead>
         <tr *ngFor="let attendance of listAttendance">
-            <td>{{attendance.id}}</td>
             <td>{{attendance.studentName}}</td>
             <td>{{attendance.wasPresent}}</td>
             <td>{{attendance.excuse}}</td>
             <td>{{attendance.receipt}}</td>
             <td>{{attendance.approved}}</td>
-            <td><button class="btn btn-success" type="button" (click)="approve()">Approve</button> 
-                <button class="btn btn-danger" type="button" (click)="deny()">Reject</button>
+            <td><button class="btn btn-success" type="button" (click)="approve(attendance)">Approve</button> 
+                <button class="btn btn-danger" type="button" (click)="deny(attendance)">Reject</button>
             </td>
         </tr>
         <tbody id="table"></tbody>

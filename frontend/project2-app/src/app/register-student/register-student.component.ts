@@ -14,8 +14,9 @@ import { Router } from '@angular/router';
 })
 export class RegisterStudentComponent implements OnInit {
 
+  teacherLoggedIn: boolean;
   constructor(private studentService:StudentService,
-    private appComponent:AppComponent) { }
+    private appComponent:AppComponent, private router: Router) { this.teacherLoggedIn = false }
 
     public onAddStudent(addForm:NgForm):void{
       this.studentService.addStudent(addForm.value).subscribe(
@@ -29,7 +30,16 @@ export class RegisterStudentComponent implements OnInit {
         }
       )
     } 
+    
 ngOnInit(): void {
+  if(localStorage.getItem("loggedInStudent") == '')
+  {
+    this.teacherLoggedIn = true;
+    }
   }
-
+  public logout(): void{
+    console.log("logout")
+    localStorage.setItem('loggedInTeacher', '');
+    this.router.navigate(['/teacher-login'])
+  }
 }
