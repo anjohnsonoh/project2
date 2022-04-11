@@ -10,8 +10,21 @@ import { Attendance } from './attendance';
 export class AttendanceService {
   
   private apiServerUrl = environment.apiBaseUrl;
+  private attendance: Attendance;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.attendance={
+      id: 0,
+      studentName: "",
+      wasPresent: true,
+      absent: false,
+      excuse: "",
+      receipt: 0,
+      approved: false
+    }
+   }
+
+
 
   public addAttendance(attendance: Attendance): Observable<Attendance> {
     return this.http.post<Attendance>(`${this.apiServerUrl}/attendance/add`, attendance)
@@ -29,4 +42,9 @@ export class AttendanceService {
     return this.http.post<Attendance>(`${this.apiServerUrl}/attendance/${id}`, attendance)
 
   }
+
+/*   public approveAttendance(attendance: Attendance): Observable<Attendance>{
+    this.attendance.approved=true
+    return this.http.post<Attendance>(`${this.apiServerUrl}/attendance/${approved}`, attendance)
+  } */
 }

@@ -129,9 +129,6 @@ export class TeacherHomeComponent implements OnInit {
      }
   }
 
-  // public viewAttendance
-
-
   public logout(): void{
     console.log("logout")
     localStorage.setItem('loggedInTeacher', '');
