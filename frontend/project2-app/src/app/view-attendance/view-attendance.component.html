@@ -1,27 +1,63 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Attendance Homepage</title>  
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <ul>
+    <a class="navstyle" style="color: honeydew"> Anjoli Academic Management System |</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor2"
+       aria-controls="navbarColor2" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor2">
+       <ul class="navbar-nav mr-auto">
         <li class="navbar-item">
-            <a class="navbar-link" type="button" onclick="window.location.href='/teacher-home'">Home</a>
+            <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
+                onclick="window.location.href='/teacher-home'">Home</a>
         </li>
-        <li class="navbar-item">
-            <a class="navbar-link" type="button" onclick="window.location.href='/register-student'">Add Student</a>
-        </li>
-        <li class="navbar-item">
-            <a class="navbar-link" type="button" onclick="window.location.href='/register-student'">Update Personal Info</a>
-        </li>
-        <li class="navbar-item">
-            <a class="navbar-link" type="button" (click)="logout()">Logout</a>
-        </li>
-    </ul>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px"
+                onclick="window.location.href='/register-student'">Add Student</a>
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" onclick="window.location.href='/edit-teacher'"
+                >Update Personal Info</a>
+          </li>
+          <li class="navbar-item">
+             <!-- <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" (click)="updateTeacher()">Update Personal Info</a> -->
+          </li>
+          <li class="navbar-item">
+             <a class="navbar-link" type="button" style="color: honeydew; margin: 0px 30px" (click)="logout()">Logout</a>
+          </li>
+       </ul>
+    </div>
+ </nav>
 
-</nav>  
-</head>
-
-<body>
-
-</body>
-</html>
+ <body>
+<div style="max-width: 100%; margin: left">
+        <strong> View Attendance </strong>
+    </div>
+<br>
+<div style="width: 100%; margin: left;">
+    <table style="text-align: center">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Student Name</th>
+                <th scope="col">Present</th>
+                <th scope="col">Excuse</th>
+                <th scope="col">Student ID</th>
+                <th scope="col">Approved</th>
+                <th scope="col" style="width: 200px">Action</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let attendance of listAttendance">
+            <td>{{attendance.id}}</td>
+            <td>{{attendance.studentName}}</td>
+            <td>{{attendance.wasPresent}}</td>
+            <td>{{attendance.excuse}}</td>
+            <td>{{attendance.receipt}}</td>
+            <td>{{attendance.approved}}</td>
+            <td><button class="btn btn-success" type="button" (click)="approve()">Approve</button> 
+                <button class="btn btn-danger" type="button" (click)="deny()">Reject</button>
+            </td>
+        </tr>
+        <tbody id="table"></tbody>
+    </table>
+</div>
+    </body>

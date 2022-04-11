@@ -25,8 +25,8 @@ export class AttendanceService {
     return this.http.get<Attendance>(`${this.apiServerUrl}/attendance/${student}`)
   }
 
-  public updateAttendance(attendance: Attendance, wasAbsent: boolean) {
-    return this.http.post<Attendance>(`${this.apiServerUrl}/attendance/${wasAbsent}`, attendance)
+  public updateAttendance(attendance: Attendance, id: number) {
+    return this.http.post<Attendance>(`${this.apiServerUrl}/attendance/${id}`, attendance)
 
   }
 }

@@ -29,21 +29,6 @@ public class Attendance {
 	
 	@Column(name = "approved")
 	private boolean approved;
-	
-	@Column(name = "absent")
-	private boolean absent;
-	
-	
-	public boolean isAbsent() {
-		return absent;
-	}
-
-
-
-	public void setAbsent(boolean absent) {
-		this.absent = absent;
-	}
-
 
 
 	public Attendance() {
@@ -52,8 +37,7 @@ public class Attendance {
 
 
 
-	public Attendance(int id, String studentName, boolean wasPresent, String excuse, int receipt, boolean approved,
-			boolean absent) {
+	public Attendance(int id, String studentName, boolean wasPresent, String excuse, int receipt, boolean approved) {
 		super();
 		this.id = id;
 		this.studentName = studentName;
@@ -61,7 +45,6 @@ public class Attendance {
 		this.excuse = excuse;
 		this.receipt = receipt;
 		this.approved = approved;
-		this.absent = absent;
 	}
 
 

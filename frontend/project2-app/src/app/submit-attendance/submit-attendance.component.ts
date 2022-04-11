@@ -35,7 +35,6 @@ export class SubmitAttendanceComponent implements OnInit {
       id:0,
       studentName:"",
       wasPresent:false,
-      absent:false,
       excuse:"",
       receipt:0,
       approved:false
