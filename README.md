@@ -10,9 +10,13 @@ This project is a test at creating a front end and backend communication system 
 
 ## Tech Stack
 * Java 8
-* Angular
+* Angular 10
 * Postgres
-* AWS EC2
+* AWS RDS
+* Spring Boot
+* Spring MVC
+* Spring Data
+* JPA
 
 ## User Stories
 
